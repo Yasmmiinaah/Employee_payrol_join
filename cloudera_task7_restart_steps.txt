@@ -1,0 +1,31 @@
+1>>>>>   ls -lh /mnt/shared/
+
+2>>>>>   sudo service hadoop-hdfs-namenode start
+	 sudo service hadoop-hdfs-datanode start
+	 sudo service hadoop-hdfs-secondarynamenode start
+ 	 sudo service hadoop-yarn-resourcemanager start
+	 sudo service hadoop-yarn-nodemanager start
+ 	 sudo service hadoop-mapreduce-historyserver start
+	 sudo jps
+
+3>>>>>	 hdfs dfs -ls /user/cloudera/input
+
+
+4>>>>>	 hdfs dfs -ls /user/cloudera/task7_output
+
+5>>>>> 	 hdfs dfs -cat /user/cloudera/task7_output/part-r-00000 | head
+
+6>>>>> 	 hdfs dfs -cat /user/cloudera/task7_output/part-r-00000 | awk 'BEGIN{srand(); n=100} {if (NR<=n) sample[NR]=$0; else {j=int(rand()*NR)+1; if (j<=n) sample[j]=$0}} END{for(i=1;i<=n && i<=NR;i++) print sample[i]}'	
+
+6>>>>>	 hdfs dfs -cat /user/cloudera/task7_output/part-r-00000 | grep "UNKNOWN EMPLOYEE" | head
+
+    لو عايز اشغل من الاول 
+
+1>>>>> 	 hdfs dfs -rm -r /user/cloudera/task7_output
+
+2>>>>>	hadoop jar /home/cloudera/Desktop/task7.jar task7.Task7Driver \
+/user/cloudera/input/employees.csv \
+/user/cloudera/input/payroll.csv \
+/user/cloudera/task7_output
+
+3>>>>> 	hdfs dfs -cat /user/cloudera/task7_output/part-r-00000 | head
