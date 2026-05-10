@@ -224,7 +224,7 @@ hdfs dfs -cat /output/payroll_join_output/part-r-00000
 
 ## Author
 
-*Yasminna Ramadan
-*ibrahim galal
-*shahd
+* Yasminna Ramadan
+* ibrahim galal
+* shahd
 
